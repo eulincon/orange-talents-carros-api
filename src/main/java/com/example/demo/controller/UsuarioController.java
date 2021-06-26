@@ -21,7 +21,7 @@ public class UsuarioController {
 
     repository.save(usuario);
 
-    return ResponseEntity.ok().build();
+    return ResponseEntity.status(HttpStatus.CREATED).build();
   }
 
   @GetMapping("/usuarios")
@@ -35,7 +35,7 @@ public class UsuarioController {
   public Usuario findById(@PathVariable Long id) {
     Usuario usuario =
         repository.findById(id)
-            .orElseThrow(() -> new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR));
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST));
 
     return usuario;
   }

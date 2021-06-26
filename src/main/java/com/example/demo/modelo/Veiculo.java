@@ -16,6 +16,8 @@ public class Veiculo {
   private String modelo;
   private String ano;
   private BigDecimal valor;
+  private int diaDoRodizio;
+
   @OneToOne
   @JsonIgnore
   private Usuario dono;
@@ -28,6 +30,14 @@ public class Veiculo {
   @JsonProperty
   public void setDono(Usuario dono) {
     this.dono = dono;
+  }
+
+  public int getDiaDoRodizio() {
+    return diaDoRodizio;
+  }
+
+  public void setDiaDoRodizio(int diaDoRodizio) {
+    this.diaDoRodizio = diaDoRodizio;
   }
 
   public Long getId() {
